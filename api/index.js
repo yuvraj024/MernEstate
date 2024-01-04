@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 import * as dotenv from 'dotenv';
 import userRouter from './routes/user.route.js';
 import listingRouter from './routes/listing.route.js';
+import cookieParser from 'cookie-parser';
 import authRouter from './routes/auth.route.js';
 dotenv.config();
 
@@ -16,6 +17,7 @@ mongoose.connect(process.env.MONGO).then(()=>{
 const app=express();
 app.use(express.json());
 
+app.use(cookieParser());
 app.listen(3000,()=>{
     console.log('Server is running on port 3000!');
 }
