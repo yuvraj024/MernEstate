@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from "mongoose"
 import * as dotenv from 'dotenv';
 import userRouter from './routes/user.route.js';
+import listingRouter from './routes/listing.route.js';
 import authRouter from './routes/auth.route.js';
 dotenv.config();
 
@@ -26,6 +27,7 @@ app.listen(3000,()=>{
 // by default json send ni kr skte server me isle
 app.use('/api/user',userRouter);
 app.use('/api/auth',authRouter);
+app.use('/api/listing',listingRouter);
 
 // middleware route
 app.use((err,req,res,next)=>{
